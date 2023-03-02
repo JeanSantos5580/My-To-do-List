@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css"
+    />
+    <title>To do List</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <span>Welcome back, "USERNAME"</span>
+        <span>You've got -7- tasks coming up for today</span>
+      </header>
+      <section class="container-section">
+        <div class="container-cards">
+          <div class="new-task-card">
+            <div class="side-line-card"></div>
+            <div class="container-task-content">
+              <span class="task-title">Task title</span>
+              <span class="task-description"
+                >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
+                doloremque rem ipsa suscipit officia voluptas iste. Inventore
+                harum nisi cumque nobis molestiae vel architecto sunt. Quibusdam
+                iusto adipisci temporibus aut.</span
+              >
+            </div>
+            <div class="container-action-icons">
+              <label class="container-checkbox">
+                <input type="checkbox" checked="checked" />
+                <span class="checkmark"></span>
+              </label>
+              <i class="container-icon-xmark">
+                <img src="./icons/xmark-solid-white.svg" alt="xmark Icon" />
+              </i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <button class="button-new-task">
+        <i class="container-icon-plus">
+          <img src="./icons/plus-solid-white.svg" alt="plus Icon" />
+        </i>
+      </button>
+
+      <div class="container-modal-new-task">
+        <input 
+        type="text" 
+        placeholder="Title of your new task."
+        class="input-task-title"
+        >
+        <input 
+        type="text" 
+        placeholder="Description of your new task."
+        class="input-task-description"
+        >
+        <input 
+        type="date" 
+        class="input-task-date"
+        >
+
+        <div class="container-hour-range">
+            <input type="time"
+            class="range-start range"
+            >
+            <input type="time"
+            class="range-end range"
+            >
+        </div>
+
+        <div class="container-buttons">
+            <button class="button-cancel button">Cancel</button>
+            <button class="button-add button">Add</button>
+        </div>
+      </div>
+
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
