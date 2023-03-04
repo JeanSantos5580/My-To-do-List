@@ -20,15 +20,18 @@
       <section class="container-section">
         <div class="container-cards">
           <div class="new-task-card">
-            <div class="side-line-card"></div>
-            <div class="container-task-content">
-              <span class="task-title">Task title</span>
-              <span class="task-description"
-                >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
-                doloremque rem ipsa suscipit officia voluptas iste. Inventore
-                harum nisi cumque nobis molestiae vel architecto sunt. Quibusdam
-                iusto adipisci temporibus aut.</span
-              >
+            <div class="container-side-line-task-content">
+              <div class="side-line-card"></div>
+              <div class="container-task-content">
+                <span class="task-date"></span>
+                <span class="task-title"></span>
+                <span class="task-description"></span>
+                <span class="container-task-range">
+                  <span class="task-range-start" ></span>
+
+                  <span class="task-range-end" ></span>
+                </span>
+              </div>
             </div>
             <div class="container-action-icons">
               <label class="container-checkbox">
@@ -49,37 +52,31 @@
         </i>
       </button>
 
-      <div class="container-modal-new-task">
-        <input 
-        type="text" 
-        placeholder="Title of your new task."
-        class="input-task-title"
-        >
-        <input 
-        type="text" 
-        placeholder="Description of your new task."
-        class="input-task-description"
-        >
-        <input 
-        type="date" 
-        class="input-task-date"
-        >
+      <div class="background-modal"></div>
+      <form class="container-modal-new-task">
+        <input
+          type="text"
+          placeholder="Title of your new task."
+          class="input-task-title"
+        />
+        <input
+          type="text"
+          placeholder="Description of your new task."
+          class="input-task-description"
+        />
+
+        <input type="date" class="input-task-date" />
 
         <div class="container-hour-range">
-            <input type="time"
-            class="range-start range"
-            >
-            <input type="time"
-            class="range-end range"
-            >
+          <input type="time" class="range-start range" />
+          <input type="time" class="range-end range" />
         </div>
 
         <div class="container-buttons">
-            <button class="button-cancel button">Cancel</button>
-            <button class="button-add button">Add</button>
+          <button class="button-cancel button">Cancel</button>
+          <button class="button-add button">Add</button>
         </div>
-      </div>
-
+      </form>
     </div>
     <script src="./script.js"></script>
   </body>
