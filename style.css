@@ -118,7 +118,6 @@ body {
     background: var(--ebony-clay-800);
     border-radius: .5rem;
     padding: .8rem;
-    cursor: pointer;
 }
 
 .container-section .new-task-card:hover {
@@ -146,10 +145,12 @@ body {
     gap: .5rem;
 }
 
-.container-task-content .task-title {
+.container-task-content .task-title{
+    width: fit-content;
     font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: .15rem;
+    position: relative;
 }
 
 .container-task-content .task-description{
@@ -238,14 +239,27 @@ body {
 }
 
 
-.container-section .new-task-card .container-icon-xmark img {
+.container-section .new-task-card .container-icon-xmark{
     width: 1.2rem;
     height: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
     border-radius: 50%;
     background: #e63946;
+    cursor: pointer;
+}
+
+
+.container-section .new-task-card .container-icon-xmark i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-section .new-task-card .container-icon-xmark img {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 /* ------------------------------------------------------------------- */
@@ -330,8 +344,11 @@ body {
     border-radius: 2rem;
 }
 
+/* inputs */
+
 .container-modal-new-task .input-task-title,
 .container-modal-new-task .input-task-description {
+    color: #fff;
     background: none;
     outline: none;
     border-top: none;
@@ -342,8 +359,14 @@ body {
 }
 
 .input-task-date {
+    background: none;
     width: 100%;
     margin: 2rem 0;
+    padding: .5rem 1rem;
+    border: none;
+    outline: var(--outline-main);
+    border-radius: 7px;
+    color: #fff;
 }
 
 .container-hour-range {
@@ -386,7 +409,6 @@ body {
     outline: var(--outline-main);
     border: none;
     cursor: pointer;
-    transition: var(--transition-main);
 }
 
 .button-cancel:hover {    
@@ -398,19 +420,10 @@ body {
     background-color: var(--cornflower-blue-400);
     border: none;
     cursor: pointer;
-    transition: var(--transition-main);
 }
 .button-add:hover {
     filter: var(--filter-main);
 }
-
-
-
-
-
-
-
-/* } */
 
 @media (76.8rem < width <=90rem) {}
 

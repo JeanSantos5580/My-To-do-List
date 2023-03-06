@@ -1,13 +1,13 @@
 const buttonCreateNewTask = document.querySelector(".button-new-task");
+const buttonFinishTask = document.querySelector(".container-checkbox");
 const modalButtonCancel = document.querySelector(".button-cancel");
 const modalButtonAdd = document.querySelector(".button-add");
-
 const backgroundModal = document.querySelector(".background-modal");
 const containerModalNewTask = document.querySelector(
   ".container-modal-new-task"
 );
 
-const taskList = [];
+let taskList = [];
 
 const openModalNewTask = () => {
   backgroundModal.style.visibility = "visible";
@@ -21,8 +21,13 @@ const closeModalNewTask = () => {
 
 const addnewTaskCard = (
   taskTitle,
-  taskDescription , taskDate, taskStart, taskEnd
+  taskDescription,
+  taskDate,
+  taskStart,
+  taskEnd
 ) => {
+
+  /* Create new task */
   const containerCards = document.querySelector(".container-cards");
   const taskCard = document.querySelector(".new-task-card");
   const newCard = taskCard.cloneNode(true);
@@ -44,17 +49,57 @@ const addnewTaskCard = (
 
   taskList.push(newCard);
 
+  console.log(taskList);
+
   containerCards.appendChild(newCard);
+
+  /* Delete task */
+  const deleteTask = newCard.querySelector(".container-icon-xmark");
+  deleteTask.addEventListener("click", (e) => {
+    newCard.remove();
+  });
+
+  /* Finish task */
+  const checkbox = newCard.querySelector(".checkbox");
+  const textDecoration = "line-through #e63946 3px"
+  const inputsValues = [
+    newTaskTitle, 
+    newTaskDescription, 
+    newTaskDate, 
+    newTaskRangeStart, 
+    newTaskRangeEnd
+  ]
+
+  checkbox.addEventListener("click", (e) => {
+    if(checkbox.checked){
+      for(let inputValue of inputsValues){
+        inputValue.style.textDecoration = textDecoration;
+      }
+    }
+    else {
+      for(let inputValue of inputsValues){
+        inputValue.style.textDecoration = "none";
+      }
+    }
+  });
 };
 
 const takeFormData = () => {
   const inputTaskTitle = document.querySelector(".input-task-title").value;
-  const inputTaskDescription = document.querySelector(".input-task-description").value;
+  const inputTaskDescription = document.querySelector(
+    ".input-task-description"
+  ).value;
   const inputTaskDate = document.querySelector(".input-task-date").value;
   const inputTimeRangeStart = document.querySelector(".range-start").value;
   const inputTimeRangeEnd = document.querySelector(".range-end").value;
 
-  addnewTaskCard(inputTaskTitle, inputTaskDescription, inputTaskDate, inputTimeRangeStart, inputTimeRangeEnd);
+  addnewTaskCard(
+    inputTaskTitle,
+    inputTaskDescription,
+    inputTaskDate,
+    inputTimeRangeStart,
+    inputTimeRangeEnd
+  );
 };
 
 buttonCreateNewTask.addEventListener("click", (e) => openModalNewTask());
