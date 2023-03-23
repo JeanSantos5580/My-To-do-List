@@ -177,6 +177,7 @@ body {
 }
 
 .container-task-content .task-date {
+    display: flex;
     width: fit-content;
     height: fit-content;
     padding: .2rem .4rem;
@@ -210,7 +211,8 @@ body {
     margin-top: 4rem;
 }
 
-.container-single-range {
+.container-range-start, 
+.container-range-end {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -218,7 +220,8 @@ body {
     position: relative;
 }
 
-.container-single-range label {
+.container-range-start label,
+.container-range-end label {
     width: 100%;
     height: 20px;
     position: absolute;
