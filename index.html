@@ -15,65 +15,72 @@
     <div class="container">
       <header class="header">
         <span>Welcome!</span>
-        <span>Your to-do list will be recorded below, enjoy the experience!</span>
+        <span
+          >Your to-do list will be recorded below, enjoy the experience!</span
+        >
       </header>
       <section class="container-section">
-        <div class="container-cards">
-          <div class="container-img-waiting-task">
-            <img
-              class="img-wait"
-              src="./icons/waiting-task.svg"
-              alt=""
-              width="300"
-            />
-            <img class="bg-blob" src="./icons/bg-blob.svg" alt="" width="300" />
-            <div class="wait-message">
-              <span>We are waiting for a new task</span>
-              <div class="load">
-                <div class="progress"></div>
-                <div class="progress"></div>
-                <div class="progress"></div>
-              </div>
-            </div>
-          </div>
-          <div class="new-task-card">
-            <div class="container-side-line-task-content">
-              <div class="side-line-card"></div>
-              <div class="container-task-content">
-                <span class="task-date"></span>
-                <span class="task-title"></span>
-                <span class="task-description"></span>
-                <div class="container-task-range">
-                  <div class="container-range-start">
-                    <label for="">Start</label>
-                    <span class="task-range-start"></span>
-                  </div>
-                  <div class="container-range-end">
-                    <label for="">End</label>
-                    <span class="task-range-end"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container-action-icons">
-              <label class="container-checkbox">
-                <input type="checkbox" class="checkbox" />
-                <span class="checkmark"></span>
-              </label>
-
-              <button class="container-icon-xmark">
-                <i>
-                  <img src="./icons/xmark-solid-white.svg" alt="xmark Icon" />
-                </i>
-              </button>
+        <div class="container-img-waiting-task">
+          <img
+            class="img-wait"
+            src="./icons/waiting-task.svg"
+            alt=""
+            width="300"
+          />
+          <img class="bg-blob" src="./icons/bg-blob.svg" alt="" width="300" />
+          <div class="wait-message">
+            <span>We are waiting for a new task</span>
+            <div class="load">
+              <div class="progress"></div>
+              <div class="progress"></div>
+              <div class="progress"></div>
             </div>
           </div>
         </div>
+        <div class="new-task-card">
+          <div class="container-side-line-task-content">
+            <div class="side-line-card"></div>
+            <div class="container-task-content">
+              <span class="task-date"></span>
+              <span class="task-title"></span>
+              <span class="task-description"></span>
+              <div class="container-task-range">
+                <div class="container-range-start">
+                  <label for="">Start</label>
+                  <span class="task-range-start"></span>
+                </div>
+                <div class="container-range-end">
+                  <label for="">End</label>
+                  <span class="task-range-end"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-action-icons">
+            <label class="container-checkbox">
+              <input type="checkbox" class="checkbox" />
+              <span class="checkmark"></span>
+            </label>
+
+            <button class="container-icon-xmark">
+              <i>
+                <img src="./icons/xmark-solid-white.svg" alt="xmark Icon" />
+              </i>
+            </button>
+          </div>
+        </div>
+        <div class="container-cards"></div>
       </section>
 
       <button class="button-new-task">
         <i class="container-icon-plus">
           <img src="./icons/plus-solid-white.svg" alt="plus Icon" />
+        </i>
+      </button>
+
+      <button class="button-clear-all-tasks">
+        <i class="container-icon-trash">
+          <img src="./icons/trash-solid.svg" alt="trash Icon" />
         </i>
       </button>
       <div class="background-modal"></div>

@@ -81,6 +81,7 @@ body {
 /* @media (32rem <= width <=76.8rem) { */
 .container {
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 1.6rem 1.6rem 9.6rem 1.6rem;
@@ -119,6 +120,7 @@ body {
     width: 100%;
     gap: 4rem;
     position: relative;
+    animation: fade-in .5s
 }
 
 
@@ -149,6 +151,7 @@ body {
     background: var(--ebony-clay-800);
     border-radius: .5rem;
     padding: .8rem;
+    animation: fade-in .5s;
 }
 
 .container-section .new-task-card:hover {
@@ -318,7 +321,6 @@ body {
     transform: rotate(45deg);
 }
 
-
 .container-section .new-task-card .container-icon-xmark {
     width: 1.2rem;
     height: 1.2rem;
@@ -380,6 +382,42 @@ body {
 }
 
 .button-new-task:hover {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+}
+
+.button-clear-all-tasks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+
+    width: 5rem;
+    height: 5rem;
+
+    border: none;
+    border-radius: 50%;
+    background-color: var(--cornflower-blue-400);
+
+    cursor: pointer;
+    transition: all .5s;
+
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.button-clear-all-tasks .container-icon-trash img {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-clear-all-tasks:hover {
     transform: scale(1.1);
     filter: brightness(1.3);
 }
@@ -561,6 +599,15 @@ body {
 .progress:nth-child(3) {
     left: 180%;
     animation-delay: 1.7s;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 @media (76.8rem < width <=90rem) {}

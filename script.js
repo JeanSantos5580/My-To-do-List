@@ -1,4 +1,5 @@
 const buttonCreateNewTask = document.querySelector(".button-new-task");
+const buttonClearTasks = document.querySelector(".button-clear-all-tasks");
 const modalButtonCancel = document.querySelector(".button-cancel");
 const modalButtonAdd = document.querySelector(".button-add");
 const backgroundModal = document.querySelector(".background-modal");
@@ -6,26 +7,17 @@ const containerModalNewTask = document.querySelector(
   ".container-modal-new-task"
 );
 const containerCards = document.querySelector(".container-cards");
-const childrenContainerCards = containerCards.children;
+let childrenContainerCards = containerCards.children;
 const containerImgWaitingTask = document.querySelector(
   ".container-img-waiting-task"
 );
 
 let taskList = [];
 
-const checkForTasks = () => {
-  for (let i = 0; i < childrenContainerCards.length; i++) {
-    const containsNewClass =
-      childrenContainerCards[i].classList.contains("new-card-generated");
-
-    if (containsNewClass) {
-      containerImgWaitingTask.style.display = "none";
-    }
-
-    if (!containsNewClass) {
-      containerImgWaitingTask.style.display = "flex";
-    }
-  }
+const checkForTasks = async () => {
+  childrenContainerCards.length > 0
+    ? (containerImgWaitingTask.style.display = "none")
+    : (containerImgWaitingTask.style.display = "flex");
 };
 
 const openModalNewTask = () => {
@@ -38,7 +30,12 @@ const closeModalNewTask = () => {
   containerModalNewTask.style.visibility = "hidden";
 };
 
-const addnewTaskCard = (
+const clearAllTasks = async () => {
+  containerCards.innerHTML = null;
+  await checkForTasks();
+};
+
+const addnewTaskCard = async (
   taskTitle,
   taskDescription,
   taskDate,
@@ -46,8 +43,7 @@ const addnewTaskCard = (
   taskEnd
 ) => {
   /* Create new task */
-  const containerCards = document.querySelector(".container-cards");
-  const taskCard = containerCards.querySelector(".new-task-card");
+  const taskCard = document.querySelector(".new-task-card");
   const newCard = taskCard.cloneNode(true);
   const deleteTask = newCard.querySelector(".container-icon-xmark");
   const checkbox = newCard.querySelector(".checkbox");
@@ -62,13 +58,13 @@ const addnewTaskCard = (
 
   const newTaskDate = newCard.querySelector(".task-date");
 
-  const containerTaskRange = newCard.querySelector(".container-task-range")
+  const containerTaskRange = newCard.querySelector(".container-task-range");
 
   const newTaskRangeStart = newCard.querySelector(".task-range-start");
-  const containerRangeStart = newCard.querySelector(".container-range-start")
-  
+  const containerRangeStart = newCard.querySelector(".container-range-start");
+
   const newTaskRangeEnd = newCard.querySelector(".task-range-end");
-  const containerRangeEnd = newCard.querySelector(".container-range-end")
+  const containerRangeEnd = newCard.querySelector(".container-range-end");
 
   /* Check if inputs of task date creation and task range values are true or false */
 
@@ -85,7 +81,7 @@ const addnewTaskCard = (
       ? (newTaskRangeEnd.innerHTML = taskEnd)
       : (containerRangeEnd.style.display = "none");
 
-    (!taskStart && !taskEnd) && (containerTaskRange.style.display = "none");
+    !taskStart && !taskEnd && (containerTaskRange.style.display = "none");
   };
 
   checkDateAndHourRange();
@@ -94,10 +90,9 @@ const addnewTaskCard = (
 
   taskList.push(newCard);
 
-
   /* Add the new card as a child of container cards */
-  containerCards.appendChild(newCard);
-  containerCards.
+  containerCards.insertBefore(newCard, containerCards.firstChild);
+  /* containerCards.insertBefore(newCard, containerCards.firstChild); */
 
   /* Changes display propertie of the new card */
   newCard.style.display = "flex";
@@ -105,8 +100,7 @@ const addnewTaskCard = (
   /* After the new card is created a new class is added to it */
   newCard.classList.add("new-card-generated");
 
-  /* Check if there's at least a task, if true, remove the wait image */
-  checkForTasks();
+
 
   /* Delete task, and check if after this, still there's any task card */
   deleteTask.addEventListener("click", (e) => {
@@ -167,6 +161,8 @@ const takeFormData = () => {
 
 buttonCreateNewTask.addEventListener("click", (e) => openModalNewTask());
 
+buttonClearTasks.addEventListener("click", (e) => clearAllTasks());
+
 modalButtonCancel.addEventListener("click", (e) => {
   e.preventDefault();
   closeModalNewTask();
@@ -176,4 +172,5 @@ modalButtonAdd.addEventListener("click", (e) => {
   e.preventDefault();
   takeFormData();
   closeModalNewTask();
+  checkForTasks()
 });
