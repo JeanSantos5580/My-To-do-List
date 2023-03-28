@@ -3,9 +3,7 @@ const buttonClearTasks = document.querySelector(".button-clear-all-tasks");
 const modalButtonCancel = document.querySelector(".button-cancel");
 const modalButtonAdd = document.querySelector(".button-add");
 const backgroundModal = document.querySelector(".background-modal");
-const containerModalNewTask = document.querySelector(
-  ".container-modal-new-task"
-);
+const containerModalNewTask = document.querySelector(".container-modal-new-task");
 const containerCards = document.querySelector(".container-cards");
 let childrenContainerCards = containerCards.children;
 const containerImgWaitingTask = document.querySelector(
@@ -14,10 +12,12 @@ const containerImgWaitingTask = document.querySelector(
 
 let taskList = [];
 
-const checkForTasks = async () => {
-  childrenContainerCards.length > 0
-    ? (containerImgWaitingTask.style.display = "none")
-    : (containerImgWaitingTask.style.display = "flex");
+const checkForTasks = () => {
+  if (childrenContainerCards.length > 0) {
+    containerImgWaitingTask.style.display = "none";
+  } else {
+    containerImgWaitingTask.style.display = "flex";
+  }
 };
 
 const openModalNewTask = () => {
@@ -30,12 +30,12 @@ const closeModalNewTask = () => {
   containerModalNewTask.style.visibility = "hidden";
 };
 
-const clearAllTasks = async () => {
+const clearAllTasks = () => {
   containerCards.innerHTML = null;
-  await checkForTasks();
+  checkForTasks();
 };
 
-const addnewTaskCard = async (
+const addnewTaskCard = (
   taskTitle,
   taskDescription,
   taskDate,
@@ -92,7 +92,6 @@ const addnewTaskCard = async (
 
   /* Add the new card as a child of container cards */
   containerCards.insertBefore(newCard, containerCards.firstChild);
-  /* containerCards.insertBefore(newCard, containerCards.firstChild); */
 
   /* Changes display propertie of the new card */
   newCard.style.display = "flex";
@@ -100,9 +99,8 @@ const addnewTaskCard = async (
   /* After the new card is created a new class is added to it */
   newCard.classList.add("new-card-generated");
 
-
-
   /* Delete task, and check if after this, still there's any task card */
+
   deleteTask.addEventListener("click", (e) => {
     newCard.remove();
     checkForTasks();
@@ -172,5 +170,5 @@ modalButtonAdd.addEventListener("click", (e) => {
   e.preventDefault();
   takeFormData();
   closeModalNewTask();
-  checkForTasks()
+  checkForTasks();
 });
