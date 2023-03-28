@@ -92,12 +92,20 @@
             class="input-task-description"
           ></textarea>
         </div>
-
-        <input type="date" class="input-task-date" />
+        <div class="container-date">
+          <label for="">Choose a date</label>
+          <input type="date" class="input-task-date" />
+        </div>
 
         <div class="container-hour-range">
-          <input type="time" class="range-start range" />
-          <input type="time" class="range-end range" />
+          <div class="container-range">
+            <label for="">Start</label>
+            <input type="time" class="range-start range" />
+          </div>
+          <div class="container-range">
+            <label for="">End</label>
+            <input type="time" class="range-end range" />
+          </div>
         </div>
 
         <div class="container-buttons">
